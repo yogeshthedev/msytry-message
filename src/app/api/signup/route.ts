@@ -56,7 +56,7 @@ export async function POST(request: Request) {
         email,
         password: hasedPassword,
         verifyCode,
-        verifyCodeExpiry: Date,
+        verifyCodeExpiry: expiryDate,
         isVerified: false,
         isAcceptingMessage: true,
         messages: [],
