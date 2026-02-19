@@ -1,5 +1,5 @@
 import {
-  Html,  
+  Html,
   Head,
   Preview,
   Heading,
@@ -13,7 +13,6 @@ interface VerificationEmailProps {
   username: string;
   otp: string;
 }
-
 export default function VerificationEmail({
   username,
   otp,
