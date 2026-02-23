@@ -6,9 +6,9 @@ import { User } from "next-auth";
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { messageid: string } },
+  context: { params: Promise<{ messageid: string }> },
 ) {
-  const messageId = params.messageid;
+  const { messageid: messageId } = await context.params; // Extract messageId from the route parameters
   await dbConnect();
 
   const session = await getServerSession(authOptions);
@@ -23,8 +23,8 @@ export async function DELETE(
 
   try {
     const updateResult = await UserModel.updateOne(
-      { _id: user.id },
-      { $pull: { messages: { _id: messageId } } },
+      { _id: user._id },
+      { $pull: { Messages: { _id: messageId } } },
     );
     if (updateResult.modifiedCount === 0) {
       return Response.json(

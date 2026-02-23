@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
@@ -65,10 +64,7 @@ export const authOptions: NextAuthOptions = {
         session.user.isAcceptingMessage = token.isAcceptingMessage;
         session.user.username = token.username;
       }
-      
       return session;
-
-
     },
   },
   pages: {

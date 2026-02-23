@@ -15,16 +15,13 @@ export async function POST(request: Request) {
     });
     if (existingUserVerifiedByUsername) {
       return Response.json(
-        
         {
           success: false,
           message: "Username is already taken",
         },
-
         {
           status: 400,
         },
-
       );
     }
     const existingUserByEmail = await UserModel.findOne({ email });
