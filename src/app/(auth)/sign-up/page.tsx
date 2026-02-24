@@ -102,7 +102,7 @@ const Page = () => {
                         field.onChange(e);
                         debounced(e.target.value);
                       }}
-                    />
+                    /> 
                   </FormControl>
                   {isCheckingUsername && (
                     <Loader2 className="animate-spin h-5 w-5 ml-2" />
@@ -110,7 +110,7 @@ const Page = () => {
                   <p
                     className={`text-sm ${usernameMessage === "Username is available" ? "text-green-500" : "text-red-500"}`}
                   >
-                    test {usernameMessage}
+                   {usernameMessage}
                   </p>
                   <FormMessage />
                 </FormItem>
